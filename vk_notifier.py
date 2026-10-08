@@ -48,8 +48,12 @@ def send_telegram_message(text):
 # --- ИНИЦИАЛИЗАЦИЯ VK ---
 # ВОТ ЭТОТ БЛОК БЫЛ ПРОПУЩЕН. Без него переменная vk не существует.
 try:
-    vk_session = vk_api.VkApi()
-    vk = vk_session.get_api()
+     if VK_TOKEN:
+        print("Использую токен VK для авторизации.")
+        vk_session = vk_api.VkApi(token=VK_TOKEN)
+    else:
+        print("ВНИМАНИЕ: Токен VK не найден! Пробую анонимно (скорее всего, будет ошибка).")
+        vk_session = vk_api.VkApi()
 except Exception as e:
     print(f"Ошибка подключения к VK API: {e}")
     exit(1)
