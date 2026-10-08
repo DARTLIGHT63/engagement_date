@@ -48,7 +48,7 @@ def send_telegram_message(text):
 # --- ИНИЦИАЛИЗАЦИЯ VK ---
 # ВОТ ЭТОТ БЛОК БЫЛ ПРОПУЩЕН. Без него переменная vk не существует.
 try:
-     if VK_TOKEN:
+    if VK_TOKEN:
         print("Использую токен VK для авторизации.")
         vk_session = vk_api.VkApi(token=VK_TOKEN)
     else:
