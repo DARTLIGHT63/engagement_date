@@ -8,6 +8,7 @@ from vk_api.exceptions import ApiError
 # Читаем токен и chat_id из переменных окружения (секретов GitHub)
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
+VK_TOKEN = os.environ.get("VK_TOKEN")
 
 # ID или короткое имя страницы ВК для отслеживания
 VK_DOMAIN = "mouravieffapostol"
