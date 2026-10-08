@@ -59,7 +59,7 @@ except Exception as e:
     exit(1)
 
 # --- ОСНОВНАЯ ЛОГИКА ---
-def main():
+def main(vk):
     print(f"Начинаю проверку страницы vk.com/{VK_DOMAIN}...")
     
     last_post_id = get_last_post_id()
@@ -115,6 +115,4 @@ def main():
         print(f"Непредвиденная ошибка: {e}")
 
 if __name__ == "__main__":
-    main()
-
-print(f"VK_TOKEN получен: {'Да' if VK_TOKEN else 'НЕТ'}")
+    main(vk)
