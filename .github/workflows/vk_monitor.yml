@@ -36,6 +36,17 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add last_post_id.txt
-          git diff --quiet && git diff --staged --quiet || git commit -m "Update last post ID"
-          git push
+          
+          # Проверяем, существует ли файл
+          if [ -f last_post_id.txt ]; then
+            git add last_post_id.txt
+            # Проверяем, есть ли изменения, чтобы не создавать пустой коммит
+            if ! git diff --cached --quiet; then
+              git commit -m "Update last post ID"
+              git push
+            else
+              echo "Нет изменений для коммита"
+            fi
+          else
+            echo "Файл last_post_id.txt не найден. Пропускаем коммит."
+          fi
