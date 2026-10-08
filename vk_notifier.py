@@ -112,3 +112,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+print(f"VK_TOKEN получен: {'Да' if VK_TOKEN else 'НЕТ'}")
